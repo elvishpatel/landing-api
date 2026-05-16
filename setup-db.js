@@ -1,15 +1,12 @@
-// Load environment variables from .env file
 require('dotenv').config();
 
 const { createClient } = require('@libsql/client');
 
-// Connect to the Turso database
 const db = createClient({
     url: process.env.TURSO_DATABASE_URL,
     authToken: process.env.TURSO_AUTH_TOKEN,
 });
 
-// The SQL command to create the table
 const createTableSql = `
     CREATE TABLE IF NOT EXISTS urls (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
